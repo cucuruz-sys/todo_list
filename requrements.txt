@@ -4,3 +4,4 @@ sqlalchemy
 pydantic
 asyncio
 aiosqlite
+requests
