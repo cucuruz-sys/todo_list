@@ -1,0 +1,20 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  todo-api:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: todo_api
+    ports:
+      - "8084:8084"
+    # Ждём, пока сервер станет доступен, затем запускаем тесты
+    command: >
+      sh -c "
+      python -m uvicorn main:app --host 0.0.0.0 --port 8084 &
+      sleep 5 &&
+      echo ' Сервер запущен. Запускаем тесты...' &&
+      python test_api.py
+      "
