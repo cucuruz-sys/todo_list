@@ -2,7 +2,7 @@ import requests
 import time
 
 
-BASE_URL = "http://127.0.0.1:8084"
+BASE_URL = "http://api:8084"
 
 def test_create_todo():
     print("\n🔹 Тест: Создание задачи")
