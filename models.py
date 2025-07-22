@@ -1,10 +1,9 @@
-from sqlalchemy import Column, Integer, String, Boolean
-from database import Base
+from typing import Optional
 
-class Todo(Base):
-    __tablename__ = "todos"
 
-    id = Column(Integer, primary_key=True, index=True)
-    title = Column(String(100), index=True, nullable=False)
-    description = Column(String(255))
-    completed = Column(Boolean, default=False)
+class LongTask:
+    def __init__(self, task_id: str, status: str, progress: int = 0, result: Optional[str] = None):
+        self.task_id = task_id
+        self.status = status
+        self.progress = progress
+        self.result = result
